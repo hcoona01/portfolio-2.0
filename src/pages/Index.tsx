@@ -46,7 +46,7 @@ const certificates = [
   },
   {
     title: 'Elements Of AI',
-    issuer: 'Helsinki University & Reaktor',
+    issuer: 'University Of Helsinki',
     date: 'Nov 2026',
     credentialId: '3ymca808p92',
     skills: ['Introduction to Artificial Intelligence', 'Machine Learning'],
@@ -58,7 +58,7 @@ const certificates = [
     issuer: 'HP Foundation',
     date: 'Feb 2026',
     credentialId: '8688aeb1-8bad-4d3b-a5f6-0c8d5c8bc46b',
-    skills: ['AI','ML'],
+    skills: ['AI', 'ML'],
     link: 'https://www.life-global.org/certificate/8688aeb1-8bad-4d3b-a5f6-0c8d5c8bc46b',
     status: 'Verified Credential',
   },
@@ -76,58 +76,58 @@ const certificates = [
 const visualCards = [
   {
     id: 1,
-    title: 'Command Center OS',
-    tag: 'Web3 & AI Interface',
+    title: 'Vidyarthi Vigyan Manthan',
+    tag: 'VVM',
     description:
-      'A futuristic blockchain command center interface exploring real-time decentralized node telemetry, transaction verification streams, and intuitive wallet session management with cybernetic dark styling.',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+      "Achieved Bikaner District Rank 1 for three consecutive years (2020,2021,2022) and in Top 10 Rajasthan Students at State Level Camp (2020,2021,2022). It is organised by NCERT, Vijnana Bharati and Department of Science and Technology.",
+    image: 'https://vvm.org.in/assets/logo.png',
     rotation: '-2deg',
-    tags: ['Web3', 'React', 'EVM Nodes', 'UI/UX Architecture'],
-    year: '2026',
+    tags: ['2020', '2021', '2022'],
+
   },
   {
     id: 2,
-    title: 'Neural Vision System',
-    tag: 'Computer Vision AI',
+    title: 'CBSE Merit Certificate',
+    tag: 'CBSE Merit Certificate in Science Subject X',
     description:
-      'Deep learning interface concept for real-time edge computer vision, feature map segmentation, and predictive object classification in spatial multi-agent environments.',
-    image: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80',
+      'Scored a perfect 100/100 in CBSE Class 10th Science Examination 2022.',
+    image: 'https://cdn.prod.website-files.com/6284943f887c4094af5abb07/672f8cf509fe44d51682db08_CBSE_new_logo.svg',
     rotation: '2deg',
-    tags: ['PyTorch', 'Computer Vision', 'Neural Net', 'Edge AI'],
-    year: '2026',
+    tags: ['2022'],
+    year: '2022',
   },
   {
     id: 3,
-    title: 'Crypto Liquidity Engine',
-    tag: 'DeFi Protocol',
+    title: 'State Talent Search Rajasthan 2022',
+    tag: 'STSE 2022',
     description:
-      'High-throughput automated market maker visualization mapping liquidity depth curves, slippage corridors, and real-time smart contract token swaps across decentralized liquidity pools.',
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',
+      'State Rank 12 in Rajasthan State Level talent Search Examination (STSE) in 2022',
+    image: 'https://bser-exam.in/img/boserlogo.png',
     rotation: '-3deg',
-    tags: ['DeFi', 'Solidity', 'Algorithmic Trading', 'WebGL'],
-    year: '2026',
+    tags: ['2022'],
+    year: '2022',
   },
   {
     id: 4,
-    title: 'Spatial Canvas UI',
-    tag: 'Interactive WebGL',
+    title: 'Joint Entrace Examination Mains 2025',
+    tag: 'JEE Mains 2025',
     description:
-      'Kinetic typography and volumetric shader experiment combining spring physics, cursor gravity fields, and GPU-accelerated mesh distortions for tactile web interactions.',
-    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
+      'Scored 97.29%ile in JEE Mains with 99.21%ile in Physics.',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF-CKc58qhVh0DEFfX26XNc9fLYADp0ds8b6r7VTtuzfpuA5SXB15ySaA&s=10',
     rotation: '3deg',
-    tags: ['Three.js', 'GLSL Shaders', 'Creative Coding', 'WebGL'],
-    year: '2026',
+    tags: ['2025'],
+    year: '2025',
   },
   {
     id: 5,
-    title: 'Autonomous Robotics',
-    tag: 'Deep Learning Models',
+    title: 'National Science Talent Search Examination (Unified Council)',
+    tag: 'NSTSE 2022',
     description:
-      'Telemetry visualization for autonomous robotics featuring lidar point-cloud mapping, sensor fusion pipelines, and trajectory prediction for robotic manipulation.',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+      'Achieved All India Rank 96 in National Science Talent Search Examination (Unified Council) in 2022.',
+    image: 'https://institute.careerguide.com/wp-content/uploads/2023/04/rodeo-6-1024x576.jpg',
     rotation: '-1.5deg',
-    tags: ['Robotics', 'ROS', 'Reinforcement Learning', 'IoT'],
-    year: '2026',
+    tags: ['2022'],
+    year: '2022',
   },
   {
     id: 6,
@@ -333,6 +333,7 @@ function SectionHeader({
   tail = '',
   description,
   action,
+  actionHref,
 }: {
   title: string
   lead: string
@@ -340,6 +341,7 @@ function SectionHeader({
   tail?: string
   description: string
   action?: string
+  actionHref?: string
 }) {
   return (
     <motion.div
@@ -361,14 +363,27 @@ function SectionHeader({
         </h2>
         <p className="text-sm text-muted md:text-base">{description}</p>
       </div>
-      {action && (
-        <button className="group relative hidden rounded-full p-[2px] md:inline-flex">
-          <span className="absolute inset-0 rounded-full accent-gradient opacity-0 transition-opacity group-hover:opacity-100" />
-          <span className="relative rounded-full border border-stroke bg-bg px-5 py-2 text-sm">
-            {action} ↗
-          </span>
-        </button>
-      )}
+      {action &&
+        (actionHref ? (
+          <a
+            href={actionHref}
+            target="_blank"
+            rel="noreferrer"
+            className="group relative hidden rounded-full p-[2px] transition hover:scale-105 md:inline-flex"
+          >
+            <span className="absolute inset-0 rounded-full accent-gradient opacity-0 transition-opacity group-hover:opacity-100" />
+            <span className="relative rounded-full border border-stroke bg-bg px-5 py-2 text-sm text-text-primary transition group-hover:bg-surface">
+              {action} ↗
+            </span>
+          </a>
+        ) : (
+          <button className="group relative hidden rounded-full p-[2px] md:inline-flex">
+            <span className="absolute inset-0 rounded-full accent-gradient opacity-0 transition-opacity group-hover:opacity-100" />
+            <span className="relative rounded-full border border-stroke bg-bg px-5 py-2 text-sm">
+              {action} ↗
+            </span>
+          </button>
+        ))}
     </motion.div>
   )
 }
@@ -509,9 +524,8 @@ export default function Index() {
       {/* Global Fixed Navbar Header - Topmost Stacking Context */}
       <header className="pointer-events-none fixed left-0 right-0 top-0 z-[1000] flex justify-center px-4 pt-4 md:pt-6">
         <nav
-          className={`pointer-events-auto inline-flex items-center rounded-full border border-white/10 bg-surface/90 px-2 py-2 backdrop-blur-md transition-all duration-300 ${
-            scrolled ? 'shadow-lg shadow-black/40 border-white/15' : ''
-          }`}
+          className={`pointer-events-auto inline-flex items-center rounded-full border border-white/10 bg-surface/90 px-2 py-2 backdrop-blur-md transition-all duration-300 ${scrolled ? 'shadow-lg shadow-black/40 border-white/15' : ''
+            }`}
         >
           <ExpandableLogo
             name="OM DIPAK KANASE"
@@ -531,11 +545,10 @@ export default function Index() {
                 scrollToSection(link.href)
                 setActive(link.label)
               }}
-              className={`rounded-full px-3 py-1.5 text-xs transition sm:px-4 sm:py-2 sm:text-sm ${
-                active === link.label
-                  ? 'bg-stroke/50 text-text-primary'
-                  : 'text-muted hover:bg-stroke/50 hover:text-text-primary'
-              }`}
+              className={`rounded-full px-3 py-1.5 text-xs transition sm:px-4 sm:py-2 sm:text-sm ${active === link.label
+                ? 'bg-stroke/50 text-text-primary'
+                : 'text-muted hover:bg-stroke/50 hover:text-text-primary'
+                }`}
             >
               {link.label}
             </a>
@@ -617,6 +630,7 @@ export default function Index() {
             accent=" PROJECTS"
             description="A selection of projects I've worked on, from concept to launch."
             action="View all work"
+            actionHref="https://github.com/hcoona01"
           />
           <div className="flex flex-col gap-12 md:gap-20">
             {workItems.map((item, index) => {
@@ -629,9 +643,8 @@ export default function Index() {
                   whileInView={{ opacity: 1, y: 0, x: 0 }}
                   viewport={{ once: true, margin: '-80px' }}
                   transition={{ duration: 0.85, ease: [0.25, 0.1, 0.25, 1] }}
-                  className={`w-full md:w-[62%] lg:w-[56%] ${
-                    isEven ? 'md:self-start' : 'md:self-end'
-                  }`}
+                  className={`w-full md:w-[62%] lg:w-[56%] ${isEven ? 'md:self-start' : 'md:self-end'
+                    }`}
                 >
                   <article className="group relative flex flex-col overflow-hidden rounded-3xl border border-stroke bg-surface/90 backdrop-blur-sm transition-all duration-500 hover:border-white/20 hover:shadow-2xl hover:shadow-black/50">
                     <div className="relative aspect-[16/10] w-full overflow-hidden">
@@ -644,7 +657,7 @@ export default function Index() {
                       <div className="pointer-events-none absolute bottom-6 left-6 rounded-full p-[1px] opacity-0 transition-all duration-300 group-hover:opacity-100">
                         <div className="animate-gradient-shift rounded-full accent-gradient p-[1px]">
                           <a
-                            href={item.link || '#'}
+                            href={item.link || 'https://github.com/hcoona01'}
                             target="_blank"
                             rel="noreferrer"
                             className="pointer-events-auto block rounded-full bg-white px-5 py-2.5 text-xs font-medium text-black transition-colors hover:bg-gray-100 sm:text-sm"
@@ -786,7 +799,7 @@ export default function Index() {
             <p className="mx-auto mb-8 max-w-lg text-muted">
               Academic, Scholastic and Co-curricular Achievements
             </p>
-            
+
           </div>
         </div>
 
@@ -987,7 +1000,7 @@ export default function Index() {
 
                   {selectedCard.tags && (
                     <div className="mb-6">
-                      <p className="mb-2 text-xs uppercase tracking-widest text-muted">Exploration Focus</p>
+                      <p className="mb-2 text-xs uppercase tracking-widest text-muted">Years of Participation</p>
                       <div className="flex flex-wrap gap-1.5">
                         {selectedCard.tags.map((t) => (
                           <span

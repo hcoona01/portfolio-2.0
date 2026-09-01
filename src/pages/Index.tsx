@@ -14,12 +14,28 @@ const videoSrc =
 
 const navLinks = [
   { label: 'Home', href: '#home' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Work', href: '#work' },
   { label: 'Resume', href: '#contact' },
 ]
 
 const roles = ['Enthusiast', '  Sophomore  ', 'Programmer', 'Problem Solver']
 const loadingWords = ['Design', 'Create', 'Inspire']
+
+const skills = [
+  { id: 1, name: 'C / C++', category: 'Systems & Core', icon: '⚡' },
+  { id: 2, name: 'Python', category: 'AI & Scripting', icon: '🐍' },
+  { id: 3, name: 'Data Structures & Algorithms', category: 'Problem Solving', icon: '🧩' },
+  { id: 4, name: 'React 19', category: 'Frontend UI', icon: '⚛️' },
+  { id: 5, name: 'TypeScript', category: 'Full-Stack', icon: '📘' },
+  { id: 6, name: 'Next.js', category: 'Web Applications', icon: '▲' },
+  { id: 7, name: 'Machine Learning', category: 'AI & Data Science', icon: '🧠' },
+  { id: 8, name: 'Node.js & Express', category: 'Backend Services', icon: '🟢' },
+  { id: 9, name: 'Solidity / Web3', category: 'Smart Contracts', icon: '⛓️' },
+  { id: 10, name: 'Tailwind CSS', category: 'Design Systems', icon: '🎨' },
+  { id: 11, name: 'Git & GitHub', category: 'Version Control', icon: '🐙' },
+  { id: 12, name: 'Cybersecurity', category: 'Security & Auth', icon: '🛡️' },
+]
 
 const workItems = [
   { title: 'StackAlign', subtitle: 'AI Job Portal', image: '', link: 'https://devstorm.vercel.app/' },
@@ -131,15 +147,14 @@ const visualCards = [
   },
   {
     id: 6,
-    title: 'Eco-Tracker Analytics',
-    tag: 'Telemetry Dashboard',
+    title: 'Reliance Foundation Scholar 2025',
+    tag: 'Reliance Foundation Scholar',
     description:
-      'Environmental monitoring suite tracking real-time carbon indices, satellite sensory telemetry, and sustainable material supply chain flows for carbon offset verification.',
-    image: 'https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=1200&q=80',
+      'Selected for the Reliance Foundation Undergraduate Scholarship Program 2025, recognizing academic merit and leadership potential.',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgNCjIXfRvttd83KoYUzLwRq0PlAhkskGoEjhaHzM8qAEOGEhenJ4DDcE&s=10',
     rotation: '2.5deg',
-    tags: ['Data Viz', 'GIS', 'Telemetry', 'CleanTech'],
-    year: '2026',
-  },
+    tags: ['2025'],
+    year: '2025'}
 ]
 
 function HlsVideo({ className, flipped = false }: { className?: string; flipped?: boolean }) {
@@ -622,6 +637,53 @@ export default function Index() {
         </div>
       </section>
 
+      <section id="skills" className="relative z-10 bg-transparent py-16 md:py-24">
+        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-16">
+          <SectionHeader
+            title="EXPERTISE"
+            lead="Technical"
+            accent="Skills"
+            description="Core languages, frameworks, AI/ML tools, and development paradigms."
+          />
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4 lg:gap-5">
+            {skills.map((skill, index) => (
+              <motion.div
+                key={skill.name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.5, delay: index * 0.04, ease: [0.25, 0.1, 0.25, 1] }}
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-stroke bg-surface/75 p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-surface hover:shadow-lg hover:shadow-cyan-500/10 sm:p-5"
+              >
+                {/* Glowing accent flash on hover */}
+                <span className="absolute inset-0 rounded-2xl accent-gradient opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
+
+                <div className="mb-3 flex items-center justify-between">
+                  <span className="text-xl transition-transform duration-300 group-hover:scale-110 sm:text-2xl">
+                    {skill.icon}
+                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 opacity-60 transition-opacity group-hover:opacity-100" />
+                    <span className="font-mono text-[10px] text-muted transition-colors group-hover:text-cyan-300 sm:text-xs">
+                      0{skill.id}
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="mb-1 text-[11px] uppercase tracking-wider text-muted transition-colors group-hover:text-text-primary/80">
+                    {skill.category}
+                  </p>
+                  <h3 className="text-sm font-semibold text-text-primary transition-colors group-hover:text-white sm:text-base">
+                    {skill.name}
+                  </h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="work" className="relative z-10 bg-transparent py-16 md:py-24">
         <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-16">
           <SectionHeader
@@ -901,7 +963,7 @@ export default function Index() {
           <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 border-t border-white/10 px-6 pt-6 text-sm text-muted md:flex-row">
             <div className="flex flex-wrap items-center gap-4">
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/om-kanase-397180372/"
                 target="_blank"
                 rel="noreferrer"
                 className="group relative inline-flex items-center rounded-full p-[1px] text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20"
@@ -919,7 +981,7 @@ export default function Index() {
               </a>
 
               <a
-                href="https://github.com"
+                href="https://github.com/hcoona01"
                 target="_blank"
                 rel="noreferrer"
                 className="group relative inline-flex items-center rounded-full p-[1px] text-sm font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/20"

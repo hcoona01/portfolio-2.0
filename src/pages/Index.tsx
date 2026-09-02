@@ -22,19 +22,27 @@ const navLinks = [
 const roles = ['Enthusiast', '  Sophomore  ', 'Programmer', 'Problem Solver']
 const loadingWords = ['Design', 'Create', 'Inspire']
 
-const skills = [
-  { id: 1, name: 'C / C++', category: 'Systems & Core', icon: '⚡' },
-  { id: 2, name: 'Python', category: 'AI & Scripting', icon: '🐍' },
-  { id: 3, name: 'Data Structures & Algorithms', category: 'Problem Solving', icon: '🧩' },
-  { id: 4, name: 'React 19', category: 'Frontend UI', icon: '⚛️' },
-  { id: 5, name: 'TypeScript', category: 'Full-Stack', icon: '📘' },
-  { id: 6, name: 'Next.js', category: 'Web Applications', icon: '▲' },
-  { id: 7, name: 'Machine Learning', category: 'AI & Data Science', icon: '🧠' },
-  { id: 8, name: 'Node.js & Express', category: 'Backend Services', icon: '🟢' },
-  { id: 9, name: 'Solidity / Web3', category: 'Smart Contracts', icon: '⛓️' },
-  { id: 10, name: 'Tailwind CSS', category: 'Design Systems', icon: '🎨' },
-  { id: 11, name: 'Git & GitHub', category: 'Version Control', icon: '🐙' },
-  { id: 12, name: 'Cybersecurity', category: 'Security & Auth', icon: '🛡️' },
+const skillCategories = [
+  {
+    title: 'Programming Languages',
+    skills: ['C / C++', 'Python', 'TypeScript', 'JavaScript', 'Solidity'],
+  },
+  {
+    title: 'Frontend & UI Frameworks',
+    skills: ['React 19', 'Next.js', 'Tailwind CSS', 'HTML5 / CSS3'],
+  },
+  {
+    title: 'Backend & Systems',
+    skills: ['Flask', 'FastAPI', 'Node.js & Express', 'MySQL', 'PostgreSQL', 'SMTP'],
+  },
+  {
+    title: 'AI, Data Science & Computer Vision',
+    skills: ['Machine Learning', 'PyTorch', 'OpenCV', 'Pandas', 'NumPy', 'Matplotlib'],
+  },
+  {
+    title: 'Blockchain & Core CS',
+    skills: ['Blockchain', 'Data Structures & Algorithms', 'Cybersecurity', 'Git & GitHub'],
+  },
 ]
 
 const workItems = [
@@ -591,7 +599,7 @@ export default function Index() {
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute bottom-0 left-0 h-48 w-full bg-gradient-to-t from-bg to-transparent" />
 
-        <ParallaxWrapper className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 text-center">
+        <ParallaxWrapper className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col items-center justify-center px-6 pt-16 pb-20 text-center">
           <p className="blur-in mb-8 text-xs uppercase tracking-[0.3em] text-muted">HCOONA01</p>
           <h1 className="name-reveal mb-6 font-display text-6xl italic leading-[0.9] tracking-tight md:text-8xl lg:text-9xl">
             <AnimatedText text="Om Dipak Kanase" />
@@ -605,11 +613,11 @@ export default function Index() {
               lives in Jalandhar.
             </p>
           </AnimatedTagline>
-          <p className="blur-in mb-12 max-w-md text-sm text-muted md:text-base">
+          <p className="blur-in mb-10 max-w-md text-sm text-muted md:text-base">
             Passionate for building-edge systems, spanning AI and ML, Web3, full-stack dev and competitive programming.
           </p>
 
-          <AnimatedButtons className="blur-in">
+          <AnimatedButtons className="blur-in mb-2">
             <button
               onClick={() => scrollToSection('#work')}
               className="group relative rounded-full p-[2px] text-sm transition hover:scale-105"
@@ -629,7 +637,7 @@ export default function Index() {
           </AnimatedButtons>
         </ParallaxWrapper>
 
-        <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
+        <div className="pointer-events-none absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-center">
           <p className="mb-2 text-xs uppercase tracking-[0.2em] text-muted">SCROLL</p>
           <div className="relative mx-auto h-10 w-px overflow-hidden bg-stroke">
             <span className="animate-scroll-down accent-gradient absolute inset-x-0 h-12" />
@@ -643,40 +651,39 @@ export default function Index() {
             title="EXPERTISE"
             lead="Technical"
             accent="Skills"
-            description="Core languages, frameworks, AI/ML tools, and development paradigms."
+            description="Core languages, frameworks, AI/ML tools, and development paradigms. Still grinding for more!"
           />
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 md:gap-4 lg:gap-5">
-            {skills.map((skill, index) => (
+          <div className="flex flex-col gap-8 md:gap-10">
+            {skillCategories.map((cat, catIndex) => (
               <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 24 }}
+                key={cat.title}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: index * 0.04, ease: [0.25, 0.1, 0.25, 1] }}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-stroke bg-surface/75 p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-surface hover:shadow-lg hover:shadow-cyan-500/10 sm:p-5"
+                transition={{ duration: 0.45, delay: catIndex * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
+                className="flex flex-col gap-3 md:gap-4"
               >
-                {/* Glowing accent flash on hover */}
-                <span className="absolute inset-0 rounded-2xl accent-gradient opacity-0 transition-opacity duration-300 group-hover:opacity-10" />
-
-                <div className="mb-3 flex items-center justify-between">
-                  <span className="text-xl transition-transform duration-300 group-hover:scale-110 sm:text-2xl">
-                    {skill.icon}
-                  </span>
-                  <div className="flex items-center gap-1.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 opacity-60 transition-opacity group-hover:opacity-100" />
-                    <span className="font-mono text-[10px] text-muted transition-colors group-hover:text-cyan-300 sm:text-xs">
-                      0{skill.id}
-                    </span>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-1 text-[11px] uppercase tracking-wider text-muted transition-colors group-hover:text-text-primary/80">
-                    {skill.category}
-                  </p>
-                  <h3 className="text-sm font-semibold text-text-primary transition-colors group-hover:text-white sm:text-base">
-                    {skill.name}
+                <div className="flex items-center gap-3">
+                  <span className="h-px w-6 bg-white/20" />
+                  <h3 className="text-xs font-medium uppercase tracking-[0.25em] text-zinc-400">
+                    {cat.title}
                   </h3>
+                </div>
+                <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 md:gap-3.5">
+                  {cat.skills.map((skill) => (
+                    <div
+                      key={skill}
+                      className="group relative inline-flex cursor-default items-center justify-center overflow-hidden rounded-full border border-white/10 bg-surface/80 px-4 py-2 text-xs font-medium text-text-primary backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/[0.06] hover:text-white hover:shadow-[0_0_12px_rgba(255,255,255,0.12)] sm:px-5 sm:py-2.5 sm:text-sm"
+                    >
+                      {/* Subtle Silver Shimmer Sweep */}
+                      <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.08] to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
+
+                      {/* Skill Name */}
+                      <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                        {skill}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
             ))}

@@ -42,6 +42,19 @@
     background-size: 200% 200%;
     animation: gradient-shift 6s ease infinite;
   }
+
+  .metallic-glow {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15), 0 0 45px rgba(161, 161, 170, 0.12);
+  }
+}
+
+@keyframes metallic-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15), 0 0 45px rgba(161, 161, 170, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.28), 0 0 70px rgba(212, 212, 216, 0.2);
+  }
 }
 
 @keyframes scroll-down {

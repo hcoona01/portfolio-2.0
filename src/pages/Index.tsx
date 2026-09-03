@@ -17,6 +17,7 @@ const navLinks = [
   { label: 'Home', href: '#home' },
   { label: 'Skills', href: '#skills' },
   { label: 'Work', href: '#work' },
+  { label: 'Education', href: '#education' },
   { label: 'Resume', href: '#contact' },
 ]
 
@@ -59,42 +60,128 @@ const workItems = [
   },
 ]
 
-const certificates = [
+export type FlashcardPreviewItem = {
+  id?: string | number
+  title: string
+  tag?: string
+  description?: string
+  image?: string
+  tags?: string[]
+  year?: string
+  date?: string
+  issuer?: string
+  credentialId?: string
+  status?: string
+  link?: string
+  skills?: string[]
+  rotation?: string
+}
+
+const certificates: FlashcardPreviewItem[] = [
   {
+    id: 1,
     title: 'Foundations of Cybersecurity',
     issuer: 'Google',
     date: 'Jul 2026',
+    year: 'Jul 2026',
     credentialId: '612GGAUQQ9ZC',
-    skills: ['CyberSecurity'],
+    skills: ['CyberSecurity', 'Threat Mitigation', 'SIEM Tools', 'Network Security'],
+    tags: ['Google', 'CyberSecurity', 'Verified Credential'],
     link: 'https://coursera.org/share/7ff716b5f9d841493763354e6e7a3455',
     status: 'Verified Credential',
+    image: 'https://images.credly.com/images/40960e1a-85d7-46a2-9fa4-70e2be52ad3e/Foundations_of_Cybersecurity.png',
+    description:
+      'Professional cybersecurity accreditation issued by Google via Coursera. Encompasses core principles of threat modeling, defensive architectures, network packet inspection, security compliance, and organizational incident response.',
   },
   {
+    id: 2,
     title: 'Elements Of AI',
     issuer: 'University Of Helsinki',
     date: 'Nov 2026',
+    year: 'Nov 2026',
     credentialId: '3ymca808p92',
-    skills: ['Introduction to Artificial Intelligence', 'Machine Learning'],
+    skills: ['Artificial Intelligence', 'Machine Learning', 'Probabilistic AI', 'Neural Networks'],
+    tags: ['Univ of Helsinki', 'AI & ML', 'Verified Credential'],
     link: 'https://certificates.mooc.fi/validate/3ymca808p92',
     status: 'Verified Credential',
+    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop',
+    description:
+      'Rigorous academic certification in Artificial Intelligence foundations, probabilistic reasoning, machine learning algorithms, search spaces, and real-world ethical implications of autonomous systems, issued by University of Helsinki & MinnaLearn.',
   },
   {
+    id: 3,
     title: 'AI for Beginners',
     issuer: 'HP Foundation',
     date: 'Feb 2026',
+    year: 'Feb 2026',
     credentialId: '8688aeb1-8bad-4d3b-a5f6-0c8d5c8bc46b',
-    skills: ['AI', 'ML'],
+    skills: ['AI Foundations', 'Predictive Modeling', 'Ethics in AI', 'Automation'],
+    tags: ['HP LIFE', 'Applied AI', 'Verified Credential'],
     link: 'https://www.life-global.org/certificate/8688aeb1-8bad-4d3b-a5f6-0c8d5c8bc46b',
     status: 'Verified Credential',
+    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop',
+    description:
+      'Applied accreditation covering practical implementations of artificial intelligence, intelligent process automation, data-driven decision frameworks, and ethical machine learning deployments under the HP LIFE global initiative.',
   },
   {
+    id: 4,
     title: 'C Programming',
     issuer: 'Neo Colab (LPU)',
     date: 'May 2026',
+    year: 'May 2026',
     credentialId: '9A50aE4BF1AG0DH3BI1',
-    skills: ['C Programming'],
+    skills: ['C Programming', 'Memory Management', 'Pointers & Structs', 'Data Structures'],
+    tags: ['Neo Colab', 'LPU', 'Core Systems'],
     link: 'https://media.licdn.com/dms/document/media/v2/D561FAQHMVLStIe23Zg/feedshare-document-pdf-analyzed/B56Z7LVAz_KMAY-/0/1781527745400?e=1788998400&v=beta&t=kAzd4C9HgTV9QfsUbKXHPc2yL_BARKjUfwM0YEWZlSw',
     status: 'Verified Credential',
+    image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1000&auto=format&fit=crop',
+    description:
+      'Advanced proficiency certificate demonstrating in-depth mastery of low-level C programming, dynamic memory allocation, pointer arithmetic, algorithmic recursion, and data structure implementations certified via Neo Colab.',
+  },
+]
+
+const educationStoryline = [
+  {
+    step: '01',
+    phase: 'Foundation Chapter',
+    degree: 'Class X',
+    institution: 'Army Public School Bikaner',
+    score: '95.8%',
+    scoreLabel: 'Aggregate Score',
+    scoreBadge: 'Board Distinction',
+    status: 'Completed',
+    statusDetail: 'CBSE Board',
+    story:
+      'Solidified a strong academic foundation with consistent scholastic achievement across all core subjects, earning a 100/100 perfect score in CBSE Science and three-year Bikaner District Rank 1 in Vidyarthi Vigyan Manthan (VVM).',
+    highlights: ['CBSE Board', 'APS Bikaner', 'Science 100/100', 'VVM District Rank 1 (3x)'],
+  },
+  {
+    step: '02',
+    phase: 'Ascent Chapter',
+    degree: 'Class XII',
+    institution: 'Army Public School Bikaner',
+    score: '92.8%',
+    scoreLabel: 'Aggregate Score',
+    scoreBadge: 'PCM Distinction',
+    status: 'Completed',
+    statusDetail: 'CBSE Board • PCM',
+    story:
+      'Completed rigorous higher secondary studies specializing in Physics, Chemistry, and Mathematics (PCM). Achieved State Rank 12 in Rajasthan State Talent Search Examination (STSE) and 97.29%ile in JEE Mains with 99.21%ile in Physics.',
+    highlights: ['PCM Stream', 'APS Bikaner', 'STSE State Rank 12', 'JEE Mains 97.29%ile', 'Physics 99.21%ile'],
+  },
+  {
+    step: '03',
+    phase: 'Frontier Chapter',
+    degree: 'B.Tech Computer Science and Engineering (AI/ML)',
+    institution: 'Undergraduate Degree',
+    score: '9.53 CGPA',
+    scoreLabel: 'Cumulative GPA',
+    scoreBadge: 'Top Tier Honors',
+    status: 'In Progress',
+    statusDetail: 'Sophomore • AI/ML',
+    story:
+      'Pursuing an engineering degree with in-depth focus on Artificial Intelligence, Machine Learning algorithms, and software systems. Maintaining a 9.53 CGPA while conducting project engineering and being recognized as a Reliance Foundation Scholar.',
+    highlights: ['AI & Machine Learning', 'Data Structures & Algorithms', 'Reliance Foundation Scholar', '9.53 CGPA'],
   },
 ]
 
@@ -420,7 +507,7 @@ export default function Index() {
   const [roleIndex, setRoleIndex] = useState(0)
   const [active, setActive] = useState('Home')
   const [scrolled, setScrolled] = useState(false)
-  const [selectedCard, setSelectedCard] = useState<(typeof visualCards)[0] | null>(null)
+  const [selectedCard, setSelectedCard] = useState<FlashcardPreviewItem | null>(null)
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
   const parallaxRef = useRef<HTMLDivElement>(null)
@@ -461,23 +548,23 @@ export default function Index() {
       })
 
       gsap.to('[data-col="left"]', {
-        yPercent: -22,
+        yPercent: -15,
         ease: 'none',
         scrollTrigger: {
           trigger: parallaxRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
+          start: 'top top',
+          end: 'bottom bottom',
           scrub: true,
         },
       })
 
       gsap.to('[data-col="right"]', {
-        yPercent: 22,
+        yPercent: -8,
         ease: 'none',
         scrollTrigger: {
           trigger: parallaxRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
+          start: 'top top',
+          end: 'bottom bottom',
           scrub: true,
         },
       })
@@ -489,7 +576,15 @@ export default function Index() {
         repeat: -1,
       })
     })
-    return () => ctx.revert()
+
+    const refreshTimer = window.setTimeout(() => {
+      ScrollTrigger.refresh()
+    }, 250)
+
+    return () => {
+      window.clearTimeout(refreshTimer)
+      ctx.revert()
+    }
   }, [])
 
   useEffect(() => {
@@ -519,7 +614,9 @@ export default function Index() {
   useEffect(() => {
     const sectionEntries: Array<[string, string]> = [
       ['Home', 'home'],
+      ['Skills', 'skills'],
       ['Work', 'work'],
+      ['Education', 'education'],
       ['Resume', 'contact'],
     ]
 
@@ -848,11 +945,12 @@ export default function Index() {
             {certificates.map((cert, index) => (
               <motion.article
                 key={cert.title || index}
+                onClick={() => setSelectedCard(cert)}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.7, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-stroke bg-surface/75 p-6 backdrop-blur-md transition-all duration-300 hover:border-white/20 hover:bg-surface hover:shadow-xl hover:shadow-cyan-500/5 sm:p-8"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-stroke bg-surface/75 p-6 backdrop-blur-md transition-all duration-300 hover:border-white/25 hover:bg-surface hover:shadow-2xl hover:shadow-cyan-500/5 sm:p-8 cursor-pointer"
               >
                 {/* Background ambient glow on hover */}
                 <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(137,170,204,0.15)_0%,transparent_70%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -902,22 +1000,40 @@ export default function Index() {
                 </div>
 
                 {/* Bottom Action Footer */}
-                <div className="mt-2 flex items-center justify-between border-t border-stroke/50 pt-4">
+                <div className="mt-2 flex flex-wrap items-center justify-between gap-3 border-t border-stroke/50 pt-4">
                   <span className="font-mono text-[11px] text-muted">
                     ID: {cert.credentialId || `CERT-00${index + 1}`}
                   </span>
 
-                  <a
-                    href={cert.link || '#'}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group/link relative inline-flex items-center gap-1.5 rounded-full p-[1px] text-xs font-medium transition hover:scale-105"
-                  >
-                    <span className="absolute inset-0 rounded-full accent-gradient opacity-0 transition-opacity group-hover/link:opacity-100" />
-                    <span className="relative inline-flex items-center gap-1.5 rounded-full border border-stroke bg-bg px-4 py-2 text-text-primary transition-colors group-hover/link:bg-surface">
-                      Verify Credential ↗
-                    </span>
-                  </a>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setSelectedCard(cert)
+                      }}
+                      className="group/btn relative inline-flex items-center gap-1.5 rounded-full p-[1px] text-xs font-medium transition hover:scale-105"
+                    >
+                      <span className="absolute inset-0 rounded-full bg-white/20 opacity-0 transition-opacity group-hover/btn:opacity-100" />
+                      <span className="relative inline-flex items-center gap-1.5 rounded-full border border-stroke bg-surface/90 px-3.5 py-1.5 text-xs text-text-primary backdrop-blur-md transition group-hover/btn:border-white/30 group-hover/btn:text-white">
+                        <span>Preview</span>
+                        <span className="text-muted group-hover/btn:text-white">👁</span>
+                      </span>
+                    </button>
+
+                    <a
+                      href={cert.link || '#'}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="group/link relative inline-flex items-center gap-1.5 rounded-full p-[1px] text-xs font-medium transition hover:scale-105"
+                    >
+                      <span className="absolute inset-0 rounded-full accent-gradient opacity-0 transition-opacity group-hover/link:opacity-100" />
+                      <span className="relative inline-flex items-center gap-1.5 rounded-full border border-stroke bg-bg px-4 py-1.5 text-text-primary transition-colors group-hover/link:bg-surface">
+                        Verify ↗
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </motion.article>
             ))}
@@ -925,7 +1041,132 @@ export default function Index() {
         </div>
       </section>
 
-      <section ref={parallaxRef} className="relative z-10 min-h-[300vh] bg-transparent">
+      {/* Education Storyline Section */}
+      <section id="education" className="relative z-10 bg-transparent pt-14 pb-10 md:pt-20 md:pb-12">
+        <div className="mx-auto max-w-[1240px] px-6 md:px-10 lg:px-16">
+          <SectionHeader
+            title="ACADEMIC STORYLINE"
+            lead="Educational"
+            accent="Storyline"
+            description="A chronological journey tracing scholastic foundations, board distinctions, and engineering studies."
+          />
+
+          <div className="relative mt-12 md:mt-20">
+            {/* Storyline Central Trace Line */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute bottom-4 top-4 left-6 w-[2px] -translate-x-1/2 bg-gradient-to-b from-white/25 via-blue-400/40 to-stroke/60 md:left-1/2"
+            />
+
+            <div className="space-y-12 md:space-y-16">
+              {educationStoryline.map((item, index) => {
+                const isEven = index % 2 === 0
+                return (
+                  <motion.div
+                    key={item.degree}
+                    initial={{ opacity: 0, y: 35 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-70px' }}
+                    transition={{ duration: 0.7, delay: index * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
+                    className={`relative flex flex-col md:flex-row items-start ${
+                      isEven ? 'md:flex-row-reverse' : ''
+                    }`}
+                  >
+                    {/* Storyline Spine Node (Center on md, Left on mobile) */}
+                    <div className="absolute left-6 top-8 z-20 flex -translate-x-1/2 items-center justify-center md:left-1/2">
+                      <div className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-[#0e1015] shadow-[0_0_20px_rgba(255,255,255,0.18)] backdrop-blur-md transition-transform duration-300 hover:scale-110">
+                        {item.status === 'In Progress' && (
+                          <span className="absolute inset-0 animate-ping rounded-full bg-white/25" />
+                        )}
+                        <span className="font-mono text-xs font-semibold text-text-primary">
+                          {item.step}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Timeline Card */}
+                    <div
+                      className={`relative w-full pl-14 md:w-[calc(50%-2.5rem)] md:pl-0 ${
+                        isEven ? 'md:mr-auto' : 'md:ml-auto'
+                      }`}
+                    >
+                      {/* Desktop connector beam to center node */}
+                      <div
+                        aria-hidden="true"
+                        className={`pointer-events-none hidden md:block absolute top-12 h-px w-10 ${
+                          isEven
+                            ? 'right-0 translate-x-full bg-gradient-to-r from-white/25 to-transparent'
+                            : 'left-0 -translate-x-full bg-gradient-to-l from-white/25 to-transparent'
+                        }`}
+                      />
+
+                      <article className="group relative overflow-hidden rounded-3xl border border-stroke bg-surface/80 p-6 backdrop-blur-md transition-all duration-500 hover:border-white/30 hover:bg-surface hover:shadow-2xl hover:shadow-cyan-500/10 hover:-translate-y-1 sm:p-8">
+                        {/* Ambient radial glow on hover */}
+                        <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(137,170,204,0.16)_0%,transparent_70%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+                        {/* Top Bar: Chapter badge & Score showcase */}
+                        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-stroke/50 pb-4">
+                          <div className="flex items-center gap-2.5">
+                            {/* White silver glow dot */}
+                            <span className="relative flex h-2.5 w-2.5">
+                              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/70 opacity-75" />
+                              <span className="relative inline-flex h-2.5 w-2.5 rounded-full border border-white/60 bg-slate-100 shadow-[0_0_10px_rgba(255,255,255,0.95),0_0_4px_rgba(220,235,255,0.85)]" />
+                            </span>
+                            <span className="font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-muted">
+                              {item.phase} • {item.statusDetail}
+                            </span>
+                          </div>
+
+                          {/* Prominent Score Chip */}
+                          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.05] px-3.5 py-1.5 backdrop-blur-md transition-all group-hover:border-white/30 group-hover:bg-white/[0.08]">
+                            <span className="font-mono text-[10px] uppercase tracking-wider text-muted">
+                              {item.scoreLabel}
+                            </span>
+                            <span className="font-mono text-sm font-bold tracking-tight text-white sm:text-base [text-shadow:0_0_12px_rgba(255,255,255,0.4)]">
+                              {item.score}
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Heading & Institution */}
+                        <div className="mb-3">
+                          <h3 className="text-xl font-medium text-text-primary transition-colors group-hover:text-white sm:text-2xl">
+                            {item.degree}
+                          </h3>
+                          <p className="mt-1 text-sm sm:text-base text-muted">
+                            <span className="font-display italic text-lg sm:text-xl text-text-primary/95">
+                              {item.institution}
+                            </span>
+                          </p>
+                        </div>
+
+                        {/* Storyline narrative */}
+                        <p className="text-sm leading-relaxed text-muted transition-colors group-hover:text-slate-300">
+                          {item.story}
+                        </p>
+
+                        {/* Bottom highlight tags */}
+                        <div className="mt-5 flex flex-wrap gap-1.5 border-t border-stroke/40 pt-4">
+                          {item.highlights.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full border border-stroke/60 bg-bg/60 px-3 py-1 text-[11px] text-muted transition-all group-hover:border-stroke group-hover:text-text-primary"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </article>
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section ref={parallaxRef} className="relative z-10 min-h-[250vh] md:min-h-[270vh] bg-transparent">
         <div ref={contentRef} className="z-10 flex h-screen items-center justify-center px-6 text-center">
           <div>
             <p className="mb-4 text-xs uppercase tracking-[0.3em] text-muted">Achievments</p>
@@ -939,7 +1180,7 @@ export default function Index() {
           </div>
         </div>
 
-        <div className="absolute inset-0 z-20 mx-auto grid max-w-[1400px] grid-cols-2 gap-12 px-6 pt-[30vh] md:gap-40">
+        <div className="absolute inset-0 z-20 mx-auto grid max-w-[1400px] grid-cols-2 gap-12 px-6 pt-[35vh] md:gap-40 md:pt-[42vh]">
           <div data-col="left" className="space-y-16">
             {visualCards.slice(0, 3).map((card) => (
               <button
@@ -968,7 +1209,7 @@ export default function Index() {
               </button>
             ))}
           </div>
-          <div data-col="right" className="space-y-16 pt-24">
+          <div data-col="right" className="space-y-16 pt-16 md:pt-20">
             {visualCards.slice(3, 6).map((card) => (
               <button
                 key={card.id}
@@ -999,7 +1240,7 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="relative z-10 bg-transparent py-16 md:py-24">
+      <section className="relative z-20 bg-transparent py-16 md:py-24">
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-6 px-6 md:grid-cols-3 md:px-10 lg:px-16">
           {[
             ['1', 'Year Experience'],
@@ -1080,7 +1321,7 @@ export default function Index() {
         </div>
       </footer>
 
-      {/* Visual Exploration Detail Window Modal */}
+      {/* Visual Exploration & Certificate Detail Window Modal */}
       <AnimatePresence>
         {selectedCard && (
           <div
@@ -1088,82 +1329,147 @@ export default function Index() {
             onClick={() => setSelectedCard(null)}
           >
             <motion.div
-              initial={{ scale: 0.92, opacity: 0, y: 20 }}
+              initial={{ scale: 0.93, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.92, opacity: 0, y: 20 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 260 }}
+              exit={{ scale: 0.93, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', damping: 26, stiffness: 260 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative flex max-h-[90vh] w-full max-w-4xl flex-col overflow-hidden rounded-3xl border border-white/20 bg-[#0d0f13] shadow-2xl md:flex-row"
+              className="group/detail relative flex max-h-[92vh] w-full max-w-4xl flex-col overflow-hidden rounded-[26px] p-[1.5px] shadow-[0_0_50px_rgba(0,0,0,0.9)] md:flex-row"
             >
-              {/* Close Button */}
-              <button
-                type="button"
-                onClick={() => setSelectedCard(null)}
-                aria-label="Close modal"
-                className="group absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-black/60 text-muted backdrop-blur-md transition-all hover:border-white/30 hover:bg-black/90 hover:text-white"
-              >
-                ✕
-              </button>
+              {/* Base border */}
+              <div className="absolute inset-0 rounded-[26px] bg-white/10 transition-colors duration-500 group-hover/detail:bg-white/20" />
 
-              {/* Left/Top: High-Res Image Display */}
-              <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-black/40 md:aspect-auto md:w-1/2">
-                <img
-                  src={selectedCard.image}
-                  alt={selectedCard.title}
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0d0f13] via-transparent to-transparent md:hidden" />
-              </div>
+              {/* Moving white glow beam */}
+              <div className="moving-border-glow pointer-events-none opacity-0 transition-opacity duration-500 group-hover/detail:opacity-100" />
 
-              {/* Right/Bottom: Detailed Exploration Intel */}
-              <div className="flex flex-1 flex-col justify-between overflow-y-auto p-6 sm:p-8">
-                <div>
-                  <div className="mb-3 flex items-center gap-2">
-                    <span className="font-mono text-xs text-muted">0{selectedCard.id}</span>
-                    <span className="text-muted">/</span>
-                    <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wider text-cyan-300">
-                      {selectedCard.tag}
-                    </span>
-                  </div>
+              {/* Inner card container */}
+              <div className="relative z-10 flex h-full w-full flex-col overflow-hidden rounded-[24.5px] bg-[#0d0f14] md:flex-row">
+                {/* Close Button */}
+                <button
+                  type="button"
+                  onClick={() => setSelectedCard(null)}
+                  aria-label="Close modal"
+                  className="group absolute right-4 top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-black/60 text-muted backdrop-blur-md transition-all hover:border-white/30 hover:bg-black/90 hover:text-white"
+                >
+                  ✕
+                </button>
 
-                  <h3 className="mb-3 font-display text-2xl text-text-primary md:text-3xl">
-                    {selectedCard.title}
-                  </h3>
-
-                  <p className="mb-6 text-sm leading-relaxed text-muted md:text-base">
-                    {selectedCard.description}
-                  </p>
-
-                  {selectedCard.tags && (
-                    <div className="mb-6">
-                      <p className="mb-2 text-xs uppercase tracking-widest text-muted">Years of Participation</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {selectedCard.tags.map((t) => (
-                          <span
-                            key={t}
-                            className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-text-primary/90"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
+                {/* Left/Top: High-Res Image Display */}
+                <div className="relative flex min-h-[240px] w-full shrink-0 items-center justify-center overflow-hidden bg-black/50 p-6 md:min-h-[400px] md:w-1/2">
+                  {selectedCard.image ? (
+                    <img
+                      src={selectedCard.image}
+                      alt={selectedCard.title}
+                      className="max-h-[300px] max-w-full rounded-2xl object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.12)] transition-transform duration-500 hover:scale-105"
+                    />
+                  ) : (
+                    <div className="flex h-48 w-48 items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+                      <span className="font-mono text-xs uppercase tracking-widest text-muted">
+                        {selectedCard.tag || 'Preview'}
+                      </span>
                     </div>
                   )}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0d0f14] via-transparent to-transparent md:hidden" />
                 </div>
 
-                <div className="flex items-center justify-between border-t border-white/10 pt-4">
-                  <span className="font-mono text-xs text-muted">
-                    {selectedCard.year || '2026'} • Achievments & Awards
-                  </span>
-                  <button
-                    onClick={() => setSelectedCard(null)}
-                    className="group relative rounded-full p-[1px] text-xs"
-                  >
-                    <span className="absolute inset-0 rounded-full accent-gradient opacity-0 transition-opacity group-hover:opacity-100" />
-                    <span className="relative inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-text-primary transition hover:bg-white/20">
-                      Close Window ✕
+                {/* Right/Bottom: Detailed Exploration & Certificate Intel */}
+                <div className="flex flex-1 flex-col justify-between overflow-y-auto p-6 sm:p-8">
+                  <div>
+                    {/* Header Badges */}
+                    <div className="mb-3 flex flex-wrap items-center gap-2">
+                      <span className="font-mono text-xs text-muted">0{selectedCard.id}</span>
+                      <span className="text-muted">/</span>
+                      <span className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wider text-cyan-300">
+                        {selectedCard.tag || selectedCard.issuer}
+                      </span>
+                      {selectedCard.status && (
+                        <div className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-medium text-emerald-400">
+                          <span className="relative flex h-2 w-2">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                          </span>
+                          <span>{selectedCard.status}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="mb-1.5 font-display text-2xl italic tracking-tight text-white md:text-3xl">
+                      {selectedCard.title}
+                    </h3>
+
+                    {/* Issuer Subtitle */}
+                    {selectedCard.issuer && (
+                      <p className="mb-4 text-xs text-muted">
+                        Issued by <span className="font-medium text-white">{selectedCard.issuer}</span>
+                        {selectedCard.date ? ` • ${selectedCard.date}` : ''}
+                      </p>
+                    )}
+
+                    {/* Description */}
+                    <p className="mb-5 text-sm leading-relaxed text-slate-300 md:text-base">
+                      {selectedCard.description}
+                    </p>
+
+                    {/* Skills / Tags */}
+                    {(selectedCard.skills || selectedCard.tags) && (
+                      <div className="mb-5">
+                        <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.2em] text-muted">
+                          {selectedCard.issuer ? 'Key Skills Covered' : 'Years of Participation'}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {(selectedCard.skills || selectedCard.tags)?.map((t) => (
+                            <span
+                              key={t}
+                              className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200 transition-colors hover:border-white/25 hover:bg-white/10"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Credential ID */}
+                    {selectedCard.credentialId && (
+                      <div className="mb-6 flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-mono text-slate-300">
+                        <span className="text-[11px] uppercase tracking-wider text-muted">Credential ID:</span>
+                        <span className="select-all font-semibold tracking-wide text-white">{selectedCard.credentialId}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Modal Footer Actions */}
+                  <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-4">
+                    <span className="font-mono text-xs text-muted">
+                      {selectedCard.year || selectedCard.date || '2026'} • {selectedCard.issuer ? 'Verified Credential' : 'Achievements & Awards'}
                     </span>
-                  </button>
+
+                    <div className="flex items-center gap-2.5">
+                      {selectedCard.link && (
+                        <a
+                          href={selectedCard.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="group/ver relative inline-flex items-center justify-center rounded-full p-[1px] text-xs font-medium transition hover:scale-105"
+                        >
+                          <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/70 via-slate-100 to-white/90 opacity-90 shadow-[0_0_14px_rgba(255,255,255,0.3)] transition-opacity group-hover/ver:opacity-100" />
+                          <span className="relative flex items-center gap-1.5 rounded-full bg-[#0e1015] px-4 py-2 text-white transition group-hover/ver:bg-surface">
+                            <span>Verify Credential</span>
+                            <span>↗</span>
+                          </span>
+                        </a>
+                      )}
+
+                      <button
+                        type="button"
+                        onClick={() => setSelectedCard(null)}
+                        className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs text-slate-200 transition hover:border-white/35 hover:bg-white/10 hover:text-white"
+                      >
+                        Close Window ✕
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>

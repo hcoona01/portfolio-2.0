@@ -6,6 +6,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import ExpandableLogo from '../components/ExpandableLogo'
 import { AnimatedButtons, AnimatedTagline, AnimatedText, ParallaxWrapper } from '../components/AnimatedHero'
 import SnowDustBackground from '../components/SnowDustBackground'
+import omPhoto from '../assets/om.jpg'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -420,9 +421,11 @@ export default function Index() {
   const [active, setActive] = useState('Home')
   const [scrolled, setScrolled] = useState(false)
   const [selectedCard, setSelectedCard] = useState<(typeof visualCards)[0] | null>(null)
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
   const parallaxRef = useRef<HTMLDivElement>(null)
   const marqueeRef = useRef<HTMLDivElement>(null)
+  const heroPhotoRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const roleTimer = window.setInterval(() => {
@@ -488,6 +491,30 @@ export default function Index() {
     })
     return () => ctx.revert()
   }, [])
+
+  useEffect(() => {
+    if (!heroPhotoRef.current) return
+    const ctx = gsap.context(() => {
+      gsap.to(heroPhotoRef.current, {
+        opacity: 0,
+        y: 20,
+        scale: 0.9,
+        ease: 'power1.out',
+        scrollTrigger: {
+          trigger: '#home',
+          start: 'top top',
+          end: '35% top',
+          scrub: true,
+          onUpdate: (self) => {
+            if (heroPhotoRef.current) {
+              heroPhotoRef.current.style.pointerEvents = self.progress > 0.85 ? 'none' : 'auto'
+            }
+          },
+        },
+      })
+    })
+    return () => ctx.revert()
+  }, [isLoading])
 
   useEffect(() => {
     const sectionEntries: Array<[string, string]> = [
@@ -642,6 +669,46 @@ export default function Index() {
           <div className="relative mx-auto h-10 w-px overflow-hidden bg-stroke">
             <span className="animate-scroll-down accent-gradient absolute inset-x-0 h-12" />
           </div>
+        </div>
+
+        {/* Hero Photo - Positioned in the bottom-right corner of the video hero section, fades away on scroll */}
+        <div
+          ref={heroPhotoRef}
+          className="group absolute bottom-8 right-6 z-20 md:bottom-10 md:right-10 lg:bottom-12 lg:right-14"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            className="relative flex flex-col items-center"
+          >
+            {/* Tooltip on hover */}
+            
+
+            {/* Glowing avatar ring with 180% hover expansion & modal opener */}
+            <button
+              type="button"
+              onClick={() => setIsAboutModalOpen(true)}
+              aria-label="View About Om Dipak Kanase"
+              className="relative block h-20 w-20 origin-bottom-right rounded-full p-[2px] cursor-pointer text-left transition-all duration-500 ease-out group-hover:scale-[1.8] group-hover:shadow-[0_0_35px_rgba(6,182,212,0.35)] sm:h-22 sm:w-22 md:h-24 md:w-24 focus:outline-none"
+            >
+              <span className="absolute inset-0 rounded-full accent-gradient opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+              <div className="relative h-full w-full overflow-hidden rounded-full border border-white/20 bg-surface/90 shadow-2xl backdrop-blur-md transition-colors duration-500 group-hover:border-transparent group-hover:bg-bg">
+                <img
+                  src={omPhoto}
+                  alt="Om Dipak Kanase"
+                  className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-110 select-none"
+                  draggable={false}
+                />
+              </div>
+
+              {/* Status indicator badge - Silver white glow */}
+              <span className="absolute bottom-1 right-1 flex h-3.5 w-3.5 sm:h-4 sm:w-4" title="Available to connect">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/70 opacity-75" />
+                <span className="relative inline-flex h-full w-full rounded-full border-2 border-[#0a0a0c] bg-slate-100 shadow-[0_0_12px_rgba(255,255,255,0.9),0_0_4px_rgba(200,225,255,0.8)]" />
+              </span>
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -1101,6 +1168,159 @@ export default function Index() {
               </div>
             </motion.div>
           </div>
+        )}
+      </AnimatePresence>
+
+      {/* About Me Popup Window Modal with Fade Effect */}
+      <AnimatePresence>
+        {isAboutModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[10000] grid place-items-center bg-black/80 p-4 backdrop-blur-md"
+            onClick={() => setIsAboutModalOpen(false)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94, y: 16 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.94, y: 16 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="group/modal relative w-full max-w-[480px] overflow-hidden rounded-[24px] p-[1.5px] shadow-[0_0_20px_rgba(0,0,0,0.8),0_20px_60px_rgba(0,0,0,0.85)] transition-shadow duration-500 hover:shadow-[0_0_45px_rgba(255,255,255,0.15),0_20px_60px_rgba(0,0,0,0.9)]"
+            >
+              {/* Base border */}
+              <div className="absolute inset-0 rounded-[24px] bg-white/10 transition-colors duration-500 group-hover/modal:bg-white/20" />
+
+              {/* Moving white glow beam - only visible on hover */}
+              <div className="moving-border-glow pointer-events-none opacity-0 transition-opacity duration-500 group-hover/modal:opacity-100" />
+
+              {/* Inner content box */}
+              <div className="relative z-10 h-full w-full overflow-hidden rounded-[22.5px] bg-[#0e1015]/95 p-6 backdrop-blur-2xl sm:p-7">
+                {/* Close Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsAboutModalOpen(false)}
+                  aria-label="Close window"
+                  className="group absolute right-4 top-4 z-20 flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-muted transition-all hover:border-white/30 hover:bg-white/15 hover:text-white"
+                >
+                  ✕
+                </button>
+
+              {/* Profile Header */}
+              <div className="flex items-center gap-4 pr-6">
+                <div className="relative h-16 w-16 shrink-0 rounded-full p-[2px] shadow-[0_0_16px_rgba(255,255,255,0.2)]">
+                  <span className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/70 via-slate-200/40 to-white/90" />
+                  <img
+                    src={omPhoto}
+                    alt="Om Dipak Kanase"
+                    className="relative h-full w-full rounded-full object-cover object-center"
+                  />
+                  <span className="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-[#0e1015] bg-slate-100 shadow-[0_0_10px_rgba(255,255,255,0.9)]" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-display text-2xl italic tracking-tight text-white [text-shadow:0_0_14px_rgba(255,255,255,0.4)] sm:text-3xl">
+                    Om Dipak Kanase
+                  </h3>
+                  <p className="mt-0.5 text-xs font-medium text-slate-300">
+                    Programmer & Problem Solver
+                  </p>
+                  <p className="mt-0.5 text-[11px] text-muted">
+                    📍 Jalandhar, Punjab • Sophomore
+                  </p>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div className="my-5 h-px w-full bg-white/10" />
+
+              {/* Bio description */}
+              <div className="space-y-3 text-sm leading-relaxed text-slate-300">
+                <p>
+                  Passionate for building cutting-edge software systems, bridging{' '}
+                  <span className="font-medium text-white [text-shadow:0_0_8px_rgba(255,255,255,0.35)]">
+                    Artificial Intelligence
+                  </span>
+                  ,{' '}
+                  <span className="font-medium text-white [text-shadow:0_0_8px_rgba(255,255,255,0.35)]">
+                    Web3 architectures
+                  </span>
+                  , and{' '}
+                  <span className="font-medium text-white [text-shadow:0_0_8px_rgba(255,255,255,0.35)]">
+                    Full-Stack Development
+                  </span>
+                  .
+                </p>
+                <p>
+                  Honored as a{' '}
+                  <span className="font-medium text-white [text-shadow:0_0_10px_rgba(255,255,255,0.5)]">
+                    Reliance Foundation Scholar (2025)
+                  </span>
+                  , CBSE Science Merit recipient (100/100), and JEE Mains{' '}
+                  <span className="font-medium text-white [text-shadow:0_0_8px_rgba(255,255,255,0.35)]">
+                    97.29%ile
+                  </span>{' '}
+                  achiever.
+                </p>
+              </div>
+
+              {/* Focus Tags */}
+              <div className="mt-5">
+                <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.2em] text-muted">
+                  Key Focus Areas
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    'AI & Machine Learning',
+                    'React 19 & Next.js',
+                    'FastAPI & Flask',
+                    'Solidity & Web3',
+                    'Competitive Programming',
+                    'Data Structures & Algorithms',
+                  ].map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200 transition-colors hover:border-white/25 hover:bg-white/10"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="mt-6 flex items-center gap-2.5 border-t border-white/10 pt-4">
+                <a
+                  href="mailto:projectcertificate01@gmail.com"
+                  className="group relative flex flex-1 items-center justify-center rounded-full p-[1px] text-xs font-medium transition hover:scale-[1.02]"
+                >
+                  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/70 via-slate-100 to-white/90 opacity-90 shadow-[0_0_14px_rgba(255,255,255,0.3)] transition-opacity group-hover:opacity-100" />
+                  <span className="relative flex w-full items-center justify-center gap-1.5 rounded-full bg-[#0e1015] px-4 py-2.5 text-white transition group-hover:bg-surface">
+                    <span>Contact Me</span>
+                    <span>✉</span>
+                  </span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/om-kanase-397180372/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-xs text-slate-200 transition hover:border-white/35 hover:bg-white/10 hover:text-white"
+                >
+                  LinkedIn ↗
+                </a>
+                <a
+                  href="https://github.com/hcoona01"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-xs text-slate-200 transition hover:border-white/35 hover:bg-white/10 hover:text-white"
+                >
+                  GitHub ↗
+                </a>
+              </div>
+              </div>
+            </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
     </main>

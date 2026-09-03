@@ -46,6 +46,29 @@
   .metallic-glow {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.15), 0 0 45px rgba(161, 161, 170, 0.12);
   }
+
+  .moving-border-glow {
+    position: absolute;
+    inset: -150%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 260deg,
+      rgba(255, 255, 255, 0.15) 300deg,
+      rgba(255, 255, 255, 0.95) 345deg,
+      rgba(255, 255, 255, 0.2) 360deg
+    );
+    animation: rotate-beam 8s linear infinite;
+  }
+}
+
+@keyframes rotate-beam {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes metallic-pulse {

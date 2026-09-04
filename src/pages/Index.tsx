@@ -18,7 +18,7 @@ const navLinks = [
   { label: 'Skills', href: '#skills' },
   { label: 'Work', href: '#work' },
   { label: 'Education', href: '#education' },
-  { label: 'Resume', href: '#contact' },
+  { label: 'Resume', href: 'https://omkanasefscv.tiiny.site/' },
 ]
 
 const roles = ['Enthusiast', '  Sophomore  ', 'Programmer', 'Problem Solver']
@@ -617,7 +617,7 @@ export default function Index() {
       ['Skills', 'skills'],
       ['Work', 'work'],
       ['Education', 'education'],
-      ['Resume', 'contact'],
+      ['Contact', 'contact'],
     ]
 
     const onScroll = () => {
@@ -683,30 +683,36 @@ export default function Index() {
             }}
           />
           <span className="mx-1 hidden h-5 w-px bg-stroke sm:block" />
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault()
-                scrollToSection(link.href)
-                setActive(link.label)
-              }}
-              className={`rounded-full px-3 py-1.5 text-xs transition sm:px-4 sm:py-2 sm:text-sm ${active === link.label
-                ? 'bg-stroke/50 text-text-primary'
-                : 'text-muted hover:bg-stroke/50 hover:text-text-primary'
-                }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isExternal = link.href.startsWith('http') || link.href.startsWith('//')
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+                onClick={(e) => {
+                  if (isExternal) return
+                  e.preventDefault()
+                  scrollToSection(link.href)
+                  setActive(link.label)
+                }}
+                className={`rounded-full px-3 py-1.5 text-xs transition sm:px-4 sm:py-2 sm:text-sm ${active === link.label
+                  ? 'bg-stroke/50 text-text-primary'
+                  : 'text-muted hover:bg-stroke/50 hover:text-text-primary'
+                  }`}
+              >
+                {link.label}
+              </a>
+            )
+          })}
           <span className="mx-1 hidden h-5 w-px bg-stroke sm:block" />
           <a
             href="#contact"
             onClick={(e) => {
               e.preventDefault()
               scrollToSection('#contact')
-              setActive('Resume')
+              setActive('Contact')
             }}
             className="group relative rounded-full p-[2px] text-xs sm:text-sm"
           >

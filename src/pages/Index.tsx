@@ -45,6 +45,10 @@ const skillCategories = [
     title: 'Blockchain & Core CS',
     skills: ['Blockchain', 'Data Structures & Algorithms', 'Cybersecurity', 'Git & GitHub'],
   },
+  {
+    title: 'Soft Skills',
+    skills: ['Problem Solving', 'Adaptability', 'Discipline', 'Leadership'],
+  },
 ]
 
 const workItems = [
@@ -250,7 +254,8 @@ const visualCards = [
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgNCjIXfRvttd83KoYUzLwRq0PlAhkskGoEjhaHzM8qAEOGEhenJ4DDcE&s=10',
     rotation: '2.5deg',
     tags: ['2025'],
-    year: '2025'}
+    year: '2025'
+  }
 ]
 
 function HlsVideo({ className, flipped = false }: { className?: string; flipped?: boolean }) {
@@ -786,7 +791,7 @@ export default function Index() {
             className="relative flex flex-col items-center"
           >
             {/* Tooltip on hover */}
-            
+
 
             {/* Glowing avatar ring with 180% hover expansion & modal opener */}
             <button
@@ -1074,9 +1079,8 @@ export default function Index() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: '-70px' }}
                     transition={{ duration: 0.7, delay: index * 0.12, ease: [0.25, 0.1, 0.25, 1] }}
-                    className={`relative flex flex-col md:flex-row items-start ${
-                      isEven ? 'md:flex-row-reverse' : ''
-                    }`}
+                    className={`relative flex flex-col md:flex-row items-start ${isEven ? 'md:flex-row-reverse' : ''
+                      }`}
                   >
                     {/* Storyline Spine Node (Center on md, Left on mobile) */}
                     <div className="absolute left-6 top-8 z-20 flex -translate-x-1/2 items-center justify-center md:left-1/2">
@@ -1092,18 +1096,16 @@ export default function Index() {
 
                     {/* Timeline Card */}
                     <div
-                      className={`relative w-full pl-14 md:w-[calc(50%-2.5rem)] md:pl-0 ${
-                        isEven ? 'md:mr-auto' : 'md:ml-auto'
-                      }`}
+                      className={`relative w-full pl-14 md:w-[calc(50%-2.5rem)] md:pl-0 ${isEven ? 'md:mr-auto' : 'md:ml-auto'
+                        }`}
                     >
                       {/* Desktop connector beam to center node */}
                       <div
                         aria-hidden="true"
-                        className={`pointer-events-none hidden md:block absolute top-12 h-px w-10 ${
-                          isEven
+                        className={`pointer-events-none hidden md:block absolute top-12 h-px w-10 ${isEven
                             ? 'right-0 translate-x-full bg-gradient-to-r from-white/25 to-transparent'
                             : 'left-0 -translate-x-full bg-gradient-to-l from-white/25 to-transparent'
-                        }`}
+                          }`}
                       />
 
                       <article className="group relative overflow-hidden rounded-3xl border border-stroke bg-surface/80 p-6 backdrop-blur-md transition-all duration-500 hover:border-white/30 hover:bg-surface hover:shadow-2xl hover:shadow-cyan-500/10 hover:-translate-y-1 sm:p-8">
@@ -1520,116 +1522,116 @@ export default function Index() {
                   ✕
                 </button>
 
-              {/* Profile Header */}
-              <div className="flex items-center gap-4 pr-6">
-                <div className="relative h-16 w-16 shrink-0 rounded-full p-[2px] shadow-[0_0_16px_rgba(255,255,255,0.2)]">
-                  <span className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/70 via-slate-200/40 to-white/90" />
-                  <img
-                    src={omPhoto}
-                    alt="Om Dipak Kanase"
-                    className="relative h-full w-full rounded-full object-cover object-center"
-                  />
-                  <span className="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-[#0e1015] bg-slate-100 shadow-[0_0_10px_rgba(255,255,255,0.9)]" />
+                {/* Profile Header */}
+                <div className="flex items-center gap-4 pr-6">
+                  <div className="relative h-16 w-16 shrink-0 rounded-full p-[2px] shadow-[0_0_16px_rgba(255,255,255,0.2)]">
+                    <span className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/70 via-slate-200/40 to-white/90" />
+                    <img
+                      src={omPhoto}
+                      alt="Om Dipak Kanase"
+                      className="relative h-full w-full rounded-full object-cover object-center"
+                    />
+                    <span className="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-[#0e1015] bg-slate-100 shadow-[0_0_10px_rgba(255,255,255,0.9)]" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="font-display text-2xl italic tracking-tight text-white [text-shadow:0_0_14px_rgba(255,255,255,0.4)] sm:text-3xl">
+                      Om Dipak Kanase
+                    </h3>
+                    <p className="mt-0.5 text-xs font-medium text-slate-300">
+                      Programmer & Problem Solver
+                    </p>
+                    <p className="mt-0.5 text-[11px] text-muted">
+                      📍 Jalandhar, Punjab • Sophomore
+                    </p>
+                  </div>
                 </div>
-                <div className="min-w-0 flex-1">
-                  <h3 className="font-display text-2xl italic tracking-tight text-white [text-shadow:0_0_14px_rgba(255,255,255,0.4)] sm:text-3xl">
-                    Om Dipak Kanase
-                  </h3>
-                  <p className="mt-0.5 text-xs font-medium text-slate-300">
-                    Programmer & Problem Solver
-                  </p>
-                  <p className="mt-0.5 text-[11px] text-muted">
-                    📍 Jalandhar, Punjab • Sophomore
-                  </p>
-                </div>
-              </div>
 
-              {/* Divider */}
-              <div className="my-5 h-px w-full bg-white/10" />
+                {/* Divider */}
+                <div className="my-5 h-px w-full bg-white/10" />
 
-              {/* Bio description */}
-              <div className="space-y-3 text-sm leading-relaxed text-slate-300">
-                <p>
-                  Passionate for building cutting-edge software systems, bridging{' '}
-                  <span className="font-medium text-white [text-shadow:0_0_8px_rgba(255,255,255,0.35)]">
-                    Artificial Intelligence
-                  </span>
-                  ,{' '}
-                  <span className="font-medium text-white [text-shadow:0_0_8px_rgba(255,255,255,0.35)]">
-                    Web3 architectures
-                  </span>
-                  , and{' '}
-                  <span className="font-medium text-white [text-shadow:0_0_8px_rgba(255,255,255,0.35)]">
-                    Full-Stack Development
-                  </span>
-                  .
-                </p>
-                <p>
-                  Honored as a{' '}
-                  <span className="font-medium text-white [text-shadow:0_0_10px_rgba(255,255,255,0.5)]">
-                    Reliance Foundation Scholar (2025)
-                  </span>
-                  , CBSE Science Merit recipient (100/100), and JEE Mains{' '}
-                  <span className="font-medium text-white [text-shadow:0_0_8px_rgba(255,255,255,0.35)]">
-                    97.29%ile
-                  </span>{' '}
-                  achiever.
-                </p>
-              </div>
-
-              {/* Focus Tags */}
-              <div className="mt-5">
-                <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.2em] text-muted">
-                  Key Focus Areas
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {[
-                    'AI & Machine Learning',
-                    'React 19 & Next.js',
-                    'FastAPI & Flask',
-                    'Solidity & Web3',
-                    'Competitive Programming',
-                    'Data Structures & Algorithms',
-                  ].map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200 transition-colors hover:border-white/25 hover:bg-white/10"
-                    >
-                      {skill}
+                {/* Bio description */}
+                <div className="space-y-3 text-sm leading-relaxed text-slate-300">
+                  <p>
+                    Passionate for building cutting-edge software systems, bridging{' '}
+                    <span className="font-medium text-white [text-shadow:0_0_8px_rgba(255,255,255,0.35)]">
+                      Artificial Intelligence
                     </span>
-                  ))}
+                    ,{' '}
+                    <span className="font-medium text-white [text-shadow:0_0_8px_rgba(255,255,255,0.35)]">
+                      Web3 architectures
+                    </span>
+                    , and{' '}
+                    <span className="font-medium text-white [text-shadow:0_0_8px_rgba(255,255,255,0.35)]">
+                      Full-Stack Development
+                    </span>
+                    .
+                  </p>
+                  <p>
+                    Honored as a{' '}
+                    <span className="font-medium text-white [text-shadow:0_0_10px_rgba(255,255,255,0.5)]">
+                      Reliance Foundation Scholar (2025)
+                    </span>
+                    , CBSE Science Merit recipient (100/100), and JEE Mains{' '}
+                    <span className="font-medium text-white [text-shadow:0_0_8px_rgba(255,255,255,0.35)]">
+                      97.29%ile
+                    </span>{' '}
+                    achiever.
+                  </p>
                 </div>
-              </div>
 
-              {/* Action Buttons */}
-              <div className="mt-6 flex items-center gap-2.5 border-t border-white/10 pt-4">
-                <a
-                  href="mailto:projectcertificate01@gmail.com"
-                  className="group relative flex flex-1 items-center justify-center rounded-full p-[1px] text-xs font-medium transition hover:scale-[1.02]"
-                >
-                  <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/70 via-slate-100 to-white/90 opacity-90 shadow-[0_0_14px_rgba(255,255,255,0.3)] transition-opacity group-hover:opacity-100" />
-                  <span className="relative flex w-full items-center justify-center gap-1.5 rounded-full bg-[#0e1015] px-4 py-2.5 text-white transition group-hover:bg-surface">
-                    <span>Contact Me</span>
-                    <span>✉</span>
-                  </span>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/om-kanase-397180372/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-xs text-slate-200 transition hover:border-white/35 hover:bg-white/10 hover:text-white"
-                >
-                  LinkedIn ↗
-                </a>
-                <a
-                  href="https://github.com/hcoona01"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-xs text-slate-200 transition hover:border-white/35 hover:bg-white/10 hover:text-white"
-                >
-                  GitHub ↗
-                </a>
-              </div>
+                {/* Focus Tags */}
+                <div className="mt-5">
+                  <p className="mb-2 text-[11px] font-medium uppercase tracking-[0.2em] text-muted">
+                    Key Focus Areas
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {[
+                      'AI & Machine Learning',
+                      'React 19 & Next.js',
+                      'FastAPI & Flask',
+                      'Solidity & Web3',
+                      'Competitive Programming',
+                      'Data Structures & Algorithms',
+                    ].map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-200 transition-colors hover:border-white/25 hover:bg-white/10"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="mt-6 flex items-center gap-2.5 border-t border-white/10 pt-4">
+                  <a
+                    href="mailto:projectcertificate01@gmail.com"
+                    className="group relative flex flex-1 items-center justify-center rounded-full p-[1px] text-xs font-medium transition hover:scale-[1.02]"
+                  >
+                    <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/70 via-slate-100 to-white/90 opacity-90 shadow-[0_0_14px_rgba(255,255,255,0.3)] transition-opacity group-hover:opacity-100" />
+                    <span className="relative flex w-full items-center justify-center gap-1.5 rounded-full bg-[#0e1015] px-4 py-2.5 text-white transition group-hover:bg-surface">
+                      <span>Contact Me</span>
+                      <span>✉</span>
+                    </span>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/om-kanase-397180372/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-xs text-slate-200 transition hover:border-white/35 hover:bg-white/10 hover:text-white"
+                  >
+                    LinkedIn ↗
+                  </a>
+                  <a
+                    href="https://github.com/hcoona01"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-xs text-slate-200 transition hover:border-white/35 hover:bg-white/10 hover:text-white"
+                  >
+                    GitHub ↗
+                  </a>
+                </div>
               </div>
             </motion.div>
           </motion.div>

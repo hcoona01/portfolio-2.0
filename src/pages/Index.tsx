@@ -136,7 +136,7 @@ const certificates: FlashcardPreviewItem[] = [
     credentialId: '9A50aE4BF1AG0DH3BI1',
     skills: ['C Programming', 'Memory Management', 'Pointers & Structs', 'Data Structures'],
     tags: ['Neo Colab', 'LPU', 'Core Systems'],
-    link: 'https://media.licdn.com/dms/document/media/v2/D561FAQHMVLStIe23Zg/feedshare-document-pdf-analyzed/B56Z7LVAz_KMAY-/0/1781527745400?e=1788998400&v=beta&t=kAzd4C9HgTV9QfsUbKXHPc2yL_BARKjUfwM0YEWZlSw',
+    link: 'https://drive.google.com/file/d/1-2y-Y6gbwCn1D9f4I6cPZcAghkLEKFZP/view?usp=drive_link',
     status: 'Verified Credential',
     image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1000&auto=format&fit=crop',
     description:
